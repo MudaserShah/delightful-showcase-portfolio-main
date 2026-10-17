@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>/</loc></url>
+  <url><loc>/projects</loc></url>
+  <url><loc>/projects/ai-customer-support-platform</loc></url>
+  <url><loc>/projects/agentic-researcher</loc></url>
+  <url><loc>/projects/document-butler</loc></url>
+  <url><loc>/projects/document-qa-assistant</loc></url>
+  <url><loc>/projects/rag-evaluation-pipeline</loc></url>
+  <url><loc>/projects/ai-automation-systems</loc></url>
+</urlset>
