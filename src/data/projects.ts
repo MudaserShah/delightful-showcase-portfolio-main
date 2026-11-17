@@ -115,8 +115,8 @@ export const projects: Project[] = [
       { challenge: "Noisy web results", resolution: "Relevance filtering before passages are written to the vector store." },
     ],
     security: ["API keys stored server-side", "Bounded agent iterations to cap cost", "Input length limits"],
-    results: ["Live demo deployed", "Structured, sourced research reports streamed in real time"],
-    techStack: ["Python", "FastAPI", "LangGraph", "RAG", "Qdrant", "Tavily", "SSE"],
+    results: ["Live demo deployed", "Structured, sourced research reports streamed in real time", "Reports exportable as PDF, with research history saved for later review"],
+    techStack: ["Python", "FastAPI", "LangGraph", "LangChain", "OpenAI", "RAG", "Qdrant", "Tavily", "Pydantic", "SSE", "React", "Vite"],
     github: "https://github.com/MudaserShah/Langgraph-Agentic-Researcher",
     demo: "https://langgraph-agentic-researcher.vercel.app",
     image: researcherShot.url,
@@ -157,7 +157,7 @@ export const projects: Project[] = [
     ],
     security: ["Upload type and size validation", "Server-side model keys"],
     results: ["Live demo deployed", "Answers include document-level citations"],
-    techStack: ["Python", "FastAPI", "LangChain", "Qdrant", "Embeddings", "RAG"],
+    techStack: ["Python", "FastAPI", "LangChain", "Qdrant", "Embeddings", "RAG", "Next.js", "React", "TypeScript", "Tailwind CSS", "sentence-transformers"],
     github: "https://github.com/MudaserShah/Production-QA-RAG",
     demo: "https://production-qa-rag-tau.vercel.app/",
     image: butlerShot.url,
@@ -232,6 +232,129 @@ export const projects: Project[] = [
     results: ["In progress"],
     techStack: ["n8n", "Make", "APIs", "LLMs", "Webhooks"],
     status: "In Progress",
+  },
+
+  {
+    slug: "dental-clinic-website",
+    title: "Dental Clinic Website — Center of Dental Implant & Face Surgery",
+    category: "Web / Client Website",
+    tagline: "Real clinic website for a Wah Cantt dental & maxillofacial surgery centre, with per-service photo galleries.",
+    description:
+      "A production client website for the Center of Dental Implant & Face Surgery in Wah Cantt, led by Dr. Sayed Mustafa (BDS, FCPS). It presents 19 services — implants, wisdom-tooth surgery, braces, aligners, root canal, jaw surgery and more — with real clinic and case photos, a clinic gallery, testimonials and contact details.",
+    problem:
+      "A specialist clinic's patients need to see real work, not stock photos: what each procedure involves, what the clinic looks like, and who the surgeon is — before they book.",
+    solution:
+      "A fast, image-led website built around the clinic's own photos. Every service has its own gallery page with real case photos and X-rays, plus a clinic gallery, doctor profile, testimonials and clear contact / location information.",
+    highlight: "Built with the client's real photos — 19 services, each with its own case gallery.",
+    architecture: [
+      { label: "Client", nodes: ["React 19", "TanStack Router"] },
+      { label: "Content", nodes: ["Service data", "Real case photos"] },
+      { label: "Pages", nodes: ["Homepage", "Per-service galleries", "Clinic gallery"] },
+      { label: "Build", nodes: ["TanStack Start", "Vite", "Tailwind CSS 4"] },
+    ],
+    howItWorks: [
+      "Visitors browse the 19 services on the homepage grid.",
+      "Clicking a service opens its own gallery page with real case photos.",
+      "The clinic gallery shows the building, treatment rooms and office.",
+      "The doctor profile, qualifications and testimonials build trust.",
+      "Contact and location details are one tap away.",
+    ],
+    technicalDecisions: [
+      { decision: "Real photos instead of stock images", why: "Patients trust a clinic they can actually see — treatment rooms, X-rays and results." },
+      { decision: "Per-service gallery routes", why: "Each procedure gets its own shareable page instead of one long list." },
+      { decision: "TanStack Start + Tailwind CSS 4", why: "Fast, type-safe routing and styling for an image-heavy site." },
+    ],
+    challenges: [
+      { challenge: "Large set of real client photos in many formats", resolution: "Organised by service in a typed data file, so adding or swapping a photo is one import." },
+      { challenge: "Keeping 19 services consistent", resolution: "One ServiceItem type drives the grid and every gallery page." },
+    ],
+    security: ["No patient data collected on the site", "Contact via phone / WhatsApp only"],
+    results: ["19 services with real case-photo galleries", "Clinic gallery, doctor profile and testimonials live on the site"],
+    techStack: ["React", "TypeScript", "TanStack Start", "TanStack Router", "Tailwind CSS", "Vite"],
+    github: "https://github.com/MudaserShah/serene-mouth-gallery",
+    status: "In Progress",
+    featured: true,
+  },
+  {
+    slug: "cakoo-bakery",
+    title: "Cakoo Bakery — Online Bakery Store",
+    category: "Web / E-commerce / WordPress",
+    tagline: "Fresh-baked online store for Attock, Wah Cantt & Hazro — 50+ items, 60-minute delivery, WhatsApp ordering.",
+    description:
+      "The live online store for Cakoo Bakery, serving Attock, Wah Cantt and Hazro. Customers browse 50+ menu items — signature cakes, cheesecakes, dream cakes, cream cakes, sundaes, brownies, cookies and tea cakes — and order for pickup or home delivery.",
+    problem:
+      "A local bakery needs orders beyond walk-ins: customers want to see the menu, check what's fresh, and order quickly from their phone.",
+    solution:
+      "A WordPress + WooCommerce store with a custom bakery theme, hero video, full menu, pickup and home-delivery options, and WhatsApp ordering — so a customer can go from browsing to ordering in minutes.",
+    highlight: "Live store taking real orders — 60-minute delivery across three cities.",
+    architecture: [
+      { label: "Storefront", nodes: ["WordPress", "Custom theme"] },
+      { label: "Commerce", nodes: ["WooCommerce", "Menu & catalogue"] },
+      { label: "Ordering", nodes: ["Pickup", "Home delivery", "WhatsApp order"] },
+      { label: "Content", nodes: ["Hero video", "Menu photos", "Offers"] },
+    ],
+    howItWorks: [
+      "Customers browse the menu — signature cakes, cheesecakes, dream cakes and more.",
+      "They choose pickup from the counter or home delivery.",
+      "Orders go through WhatsApp for a fast, familiar checkout.",
+      "Fresh items are delivered in about 60 minutes.",
+    ],
+    technicalDecisions: [
+      { decision: "WordPress + WooCommerce over a custom build", why: "The bakery team can update the menu and offers themselves, without a developer for every change." },
+      { decision: "WhatsApp ordering alongside the store", why: "Customers in this market already order on WhatsApp — meeting them there removes friction." },
+      { decision: "Custom theme with hero video", why: "A bakery sells on appetite — video and photos do the work a plain list cannot." },
+    ],
+    challenges: [
+      { challenge: "Menu changes often", resolution: "WooCommerce catalogue lets the bakery update items and prices directly." },
+      { challenge: "Customers in three cities", resolution: "Clear delivery areas — Attock, Wah Cantt and Hazro — stated up front on the site." },
+    ],
+    security: ["Orders handled via WhatsApp — no card details stored on the site"],
+    results: ["Live store at cakoobakery.shop", "50+ menu items, 100% fresh daily, 60-minute delivery"],
+    techStack: ["WordPress", "WooCommerce", "Custom Theme", "PHP", "JavaScript", "WhatsApp Ordering"],
+    demo: "https://cakoobakery.shop/",
+    status: "Live",
+    featured: true,
+  },
+  {
+    slug: "brea-garbage-disposal-website",
+    title: "Brea Garbage Disposal Pros — Local Service Website",
+    category: "Web / Local SEO / Lead Generation",
+    tagline: "Direct-provider service website for Brea, CA — 25 pages, local SEO, guides and call-first conversion.",
+    description:
+      "A 25-page local service website for Brea Garbage Disposal Pros in Brea, California. It covers replacement, installation and repair for homes and businesses, with symptom-led guide pages, neighbourhood pages, FAQ schema and a call-first flow — phone (714) 415-6595.",
+    problem:
+      "Homeowners with a humming, leaking or dead disposal need one thing fast: a local team they trust, and a phone number to call. A generic page does not convert.",
+    solution:
+      "A direct-provider site written as the local team itself: clear services, an honest repair-vs-replace guide, the exact problems people search for (humming, smell, won't turn on, leaking from the bottom), and a simple process — call, inspect, upfront options, work, test and clean up.",
+    highlight: "Built to turn searches into calls — every page ends with a clear next step.",
+    architecture: [
+      { label: "Site", nodes: ["Static HTML/CSS/JS", "25 pages"] },
+      { label: "SEO", nodes: ["Local keywords", "FAQ schema", "Sitemap"] },
+      { label: "Content", nodes: ["Service pages", "Guide pages", "Neighbourhood pages"] },
+      { label: "Conversion", nodes: ["Call CTAs", "Sticky call bar"] },
+      { label: "Hosting", nodes: ["Cloudflare Pages"] },
+    ],
+    howItWorks: [
+      "A homeowner searches a symptom — humming, leaking, won't turn on.",
+      "They land on a guide page that explains the problem in plain language.",
+      "Service and neighbourhood pages show what the team does and where.",
+      "Every page leads to the same action: call (714) 415-6595.",
+    ],
+    technicalDecisions: [
+      { decision: "Static site on Cloudflare Pages", why: "Fast, cheap and reliable for a content-led local site — no server to maintain." },
+      { decision: "Direct-provider voice throughout", why: "Visitors trust a local team ('our technicians') far more than a referral directory." },
+      { decision: "Symptom-led guide pages with FAQ schema", why: "People search symptoms, not service names — each guide targets a real query." },
+    ],
+    challenges: [
+      { challenge: "New domain, no rankings at launch", resolution: "Built 25 interlinked pages around real Brea queries, submitted the sitemap, and requested indexing page by page." },
+      { challenge: "Keeping every phone number consistent", resolution: "One number site-wide, verified across all pages before each deploy." },
+    ],
+    security: ["No user data collected", "Call-only conversion — no forms storing personal details"],
+    results: ["Live at garbagedisposalbreaca.com", "25-page site with sitemap, guides and FAQ schema", "Phone and service details verified live on every deploy"],
+    techStack: ["HTML", "CSS", "JavaScript", "Cloudflare Pages", "Local SEO", "Schema.org"],
+    demo: "https://garbagedisposalbreaca.com/",
+    status: "Live",
+    featured: true,
   },
 ];
 
