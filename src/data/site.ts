@@ -8,5 +8,5 @@ export const site = {
   email: "YOUR-EMAIL@example.com", // TODO: replace
   location: "Based in Pakistan · Building for global teams",
   // Paste your intro video URL here (MP4). Leave empty to show the placeholder.
-  introVideo: "",
+  introVideo: "/intro-video.mp4",
 };
