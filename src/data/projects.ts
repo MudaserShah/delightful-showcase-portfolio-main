@@ -1,5 +1,6 @@
-import researcherShot from "@/assets/researcher.jpg.asset.json";
-import butlerShot from "@/assets/butler.jpg.asset.json";
+// Project screenshots are hosted on the Lovable deployment (the repo only
+// holds .asset.json pointers to /__l5e/... paths, which 404 on any other host).
+// Absolute URLs below work on Lovable, Vercel, Cloudflare and local preview alike.
 
 export type ProjectStatus = "Live" | "In Progress" | "Prototype";
 
@@ -119,7 +120,7 @@ export const projects: Project[] = [
     techStack: ["Python", "FastAPI", "LangGraph", "LangChain", "OpenAI", "RAG", "Qdrant", "Tavily", "Pydantic", "SSE", "React", "Vite"],
     github: "https://github.com/MudaserShah/Langgraph-Agentic-Researcher",
     demo: "https://langgraph-agentic-researcher.vercel.app",
-    image: researcherShot.url,
+    image: "https://delightful-showcase-portfolio.lovable.app/__l5e/assets-v1/ac9f2e41-dae8-4d01-ba98-86f554d30358/researcher.jpg",
     status: "Live",
     featured: true,
   },
@@ -160,7 +161,7 @@ export const projects: Project[] = [
     techStack: ["Python", "FastAPI", "LangChain", "Qdrant", "Embeddings", "RAG", "Next.js", "React", "TypeScript", "Tailwind CSS", "sentence-transformers"],
     github: "https://github.com/MudaserShah/Production-QA-RAG",
     demo: "https://production-qa-rag-tau.vercel.app/",
-    image: butlerShot.url,
+    image: "https://delightful-showcase-portfolio.lovable.app/__l5e/assets-v1/94ec3070-c16e-4c3f-b986-a2191add218e/butler.jpg",
     status: "Live",
     featured: true,
   },
