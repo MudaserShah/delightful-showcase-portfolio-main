@@ -78,6 +78,7 @@ export const projects: Project[] = [
     results: ["Working end-to-end support flow covering FAQs, order status, and refunds", "Containerised with Docker for reproducible deployment"],
     techStack: ["Python", "FastAPI", "PostgreSQL", "RAG", "LLMs", "OpenRouter", "JWT", "Docker", "React"],
     github: "https://github.com/MudaserShah/AI-CUSTOMER-CHATBOT",
+    image: "/ai-customer-support.png",
     status: "In Progress",
     featured: true,
   },
