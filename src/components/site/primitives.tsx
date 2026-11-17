@@ -78,9 +78,11 @@ export function StatusBadge({ status }: { status: Project["status"] }) {
 }
 
 export function ProjectPreview({ project }: { project: Project }) {
-  if (project.image)
+  const [imageFailed, setImageFailed] = useState(false);
+  if (project.image && !imageFailed)
     return (
       <img src={project.image} alt={`${project.title} screenshot`} loading="lazy" width={1280} height={800}
+        onError={() => setImageFailed(true)}
         className="h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.04]" />
     );
   const nodes = project.architecture.flatMap((l) => l.nodes).slice(0, 6);
