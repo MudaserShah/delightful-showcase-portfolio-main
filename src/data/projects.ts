@@ -214,6 +214,51 @@ export const projects: Project[] = [
   },
 
   {
+    slug: "mlops-vehicle-insurance-pipeline",
+    title: "End-to-End MLOps Pipeline",
+    category: "Machine Learning / MLOps",
+    tagline: "A complete ML lifecycle — from MongoDB ingestion to AWS deployment with CI/CD.",
+    description:
+      "An end-to-end MLOps system that trains a vehicle-insurance response model and ships it as a FastAPI service on AWS — data ingestion, schema validation, transformation, training, evaluation, model storage in S3, Docker, and GitHub Actions CI/CD.",
+    problem:
+      "A trained notebook model is not a product. Without a pipeline, retraining is manual, data problems slip through, and deployment means copying files by hand — so the model in production drifts from the model that was tested.",
+    solution:
+      "A modular pipeline where every stage is a versioned component: MongoDB ingestion, schema validation, transformation, RandomForest training with an accuracy gate, threshold-based evaluation that only promotes better models, S3 as the model store, and a FastAPI app deployed by CI/CD to EC2.",
+    highlight: "One command retrains and redeploys — the model in production always comes from the pipeline, never from a notebook.",
+    architecture: [
+      { label: "Data", nodes: ["MongoDB Atlas", "Vehicle insurance dataset"] },
+      { label: "Pipeline", nodes: ["Ingestion", "Schema validation", "Transformation"] },
+      { label: "Training", nodes: ["RandomForest", "Accuracy gate", "Threshold evaluation"] },
+      { label: "Serving", nodes: ["FastAPI", "S3 model store", "Docker"] },
+      { label: "Delivery", nodes: ["GitHub Actions", "ECR", "EC2"] },
+    ],
+    howItWorks: [
+      "Data is ingested from MongoDB Atlas into a versioned feature store.",
+      "Schema validation checks columns, types and missing values against schema.yaml before training.",
+      "Transformation encodes categorical features, scales numerics and splits train and test sets.",
+      "A RandomForest classifier trains and is scored on accuracy, F1, precision and recall.",
+      "An accuracy gate blocks weak models, and evaluation only promotes a model that beats the previous one by the 0.02 threshold.",
+      "The promoted model is pushed to S3 and served by a FastAPI app behind Docker, deployed by GitHub Actions to EC2.",
+    ],
+    technicalDecisions: [
+      { decision: "Threshold-based model promotion (0.02)", why: "A new model must beat the current one by a margin, so retraining never silently ships a worse model." },
+      { decision: "Schema validation before training", why: "Catches broken or drifted data early instead of training on it and discovering the problem in production." },
+      { decision: "S3 as the model registry", why: "The serving app always loads the promoted artifact, so training and serving can never disagree about which model is live." },
+      { decision: "Modular src/components layout", why: "Each pipeline stage is independently testable and reusable across projects." },
+    ],
+    challenges: [
+      { challenge: "Keeping training and serving consistent", resolution: "The serving app loads the same serialised preprocessing and model artifact the pipeline produced, so features are transformed identically at train and predict time." },
+      { challenge: "Credentials across local, Docker and EC2", resolution: "Configuration is injected through environment variables and AWS IAM, never committed to the repo." },
+    ],
+    security: ["No credentials in the repo — environment variables and AWS IAM", "Schema validation rejects malformed data before training", "Only evaluated models reach S3 and production"],
+    results: ["End-to-end pipeline runs from MongoDB to a deployed FastAPI app", "Multiple training runs recorded as versioned artifacts", "Retraining and deployment automated through GitHub Actions CI/CD"],
+    techStack: ["Python", "Scikit-learn", "FastAPI", "MongoDB", "AWS", "Docker", "GitHub Actions", "Pandas", "NumPy"],
+    github: "https://github.com/MudaserShah/MLOPs-Project-1",
+    image: "/mlops-pipeline.png",
+    status: "Prototype",
+    featured: true,
+  },
+  {
     slug: "dental-clinic-website",
     title: "Dental Clinic Website — Center of Dental Implant & Face Surgery",
     category: "Web / Client Website",

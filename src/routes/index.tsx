@@ -54,6 +54,7 @@ const principles = [
 
 const stack: Record<string, string[]> = {
   "AI / LLM": ["LLMs", "RAG", "Embeddings", "Prompt Engineering", "Agentic AI", "OpenAI", "Tavily"],
+  "ML / MLOps": ["Scikit-learn", "Pandas", "NumPy", "MongoDB", "AWS", "Docker", "GitHub Actions"],
   Frameworks: ["LangChain", "LangGraph", "FastAPI", "React", "Next.js", "TanStack", "TypeScript", "Tailwind CSS"],
   Web: ["React", "Next.js", "TanStack Start", "WordPress", "WooCommerce", "Cloudflare Pages"],
   Data: ["PostgreSQL", "Qdrant", "SQL", "SQLite", "Redis"],
